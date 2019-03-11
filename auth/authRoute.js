@@ -81,13 +81,16 @@ router.post('/login', (req, res) => {
     }
   }
 
-router.get('/profile',restricted, (req, res) => {
-    const { username } = req.body;
-    Users.findBy({ username })
-        .then(users => {
-            res.json(users.username);
-        })
-        .catch(err => res.send(err));
+
+router.get('/messages',restricted, (req, res) => {
+  db('messages').select('id', 'message')
+    .then(messages => {
+      res.status(200).json(messages);
+    })
+    .catch(error => {
+      errorHandler(res, 500, 'There was an error getting the projects.', error);
+    });
 });
+
 
   module.exports = router;
