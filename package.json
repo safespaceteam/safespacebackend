@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-		"test": "jest --watch --verbose",
-		"start": "nodemon index.js"
-	},
+    "test": "jest --watch --verbose",
+    "start": "nodemon index.js"
+  },
   "repository": "https://github.com/safespaceteam/safespacebackend.git",
   "author": "Megan Jeffcoat",
   "license": "MIT",
@@ -18,6 +18,7 @@
     "helmet": "^3.15.1",
     "jsonwebtoken": "^8.5.0",
     "knex": "^0.16.3",
+    "pg": "^7.8.2",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
