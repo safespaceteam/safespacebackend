@@ -70,18 +70,18 @@ router.post('/login', (req, res) => {
     if(token) {
       jwt.verify(token, secret, (err, decodedToken) => {
           if(err){
-              res.status(401).json({message: 'you shall not pass!'})
+              res.status(401).json({message: 'please login or sign up to view'})
           } else {
               req.decodedJwt = decodedToken;
               next();
           }
       });
     } else {
-        res.status(401).json({ message: 'you shall not pass!'})
+        res.status(401).json({ message: 'please login or sign up to view'})
     }
   }
 
-router.get('/home',restricted, (req, res) => {
+router.get('/profile',restricted, (req, res) => {
     const { username } = req.body;
     Users.findBy({ username })
         .then(users => {

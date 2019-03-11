@@ -11,7 +11,7 @@ configureMiddleware(server);
 
 // sanity check
 server.get("/", (req, res) => {
-    res.json({ message: "👋🌎🌍🌏, root dir sanity check" });
+    res.json({ message: "👋🌎, root dir sanity check" });
   });
 
 server.use('/', authRoute);
