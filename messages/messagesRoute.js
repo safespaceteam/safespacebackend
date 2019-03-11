@@ -37,5 +37,19 @@ router.get('/messages/:id', (req, res) => {
       });
   });
 
+// POST
+router.post('/messages', (req, res) => {
+    const newMessage = req.body;
+  
+    db('messages')
+      .insert(newMessage)
+      .then(ids => {
+        res.status(201).json(ids);
+      })
+      .catch(error => {
+        errorHandler(res, 500, 'There was an error adding the message.', error);
+      });
+  });
+
 
 module.exports = router;
