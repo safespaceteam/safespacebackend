@@ -30,7 +30,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 
 - [X] My code follows the style guidelines of this project
 - [X] I have performed a self-review of my own code
-- [ ] My code has been reviewed by at least one peer
+- [X] My code has been reviewed by at least one peer
 - [X] I have commented my code, particularly in hard-to-understand areas
 - [X] I have made corresponding changes to the documentation
 - [X] My changes generate no new warnings

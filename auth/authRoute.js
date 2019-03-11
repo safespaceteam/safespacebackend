@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require("express");
 
 const router = express.Router();
+const db = require("../data/dbConfig.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -43,8 +44,8 @@ router.post('/login', (req, res) => {
     let { username, password } = req.body;
   
     Users.findBy({ username })
-      .first()
       .then(user => {
+          console.log(user);
         if (user && bcrypt.compareSync(password, user.password)) {
             const token = generateToken(user);
           res
@@ -58,5 +59,35 @@ router.post('/login', (req, res) => {
         res.status(500).json(error);
       });
   });
+
+
+
+
+  
+
+  function restricted(req, res, next) {
+    const token = req.headers.authorization;
+    
+    if(token) {
+      jwt.verify(token, secret, (err, decodedToken) => {
+          if(err){
+              res.status(401).json({message: 'you shall not pass!'})
+          } else {
+              req.decodedJwt = decodedToken;
+              next();
+          }
+      });
+    } else {
+        res.status(401).json({ message: 'you shall not pass!'})
+    }
+  }
+
+router.get('/home',restricted, (req, res) => {
+    Users.find()
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => res.send(err));
+});
 
   module.exports = router;
