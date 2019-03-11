@@ -10,9 +10,9 @@ const server = express();
 configureMiddleware(server);
 
 // sanity check
-// server.get("/", (req, res) => {
-//     res.json({ message: "👋🌎, root dir sanity check" });
-//   });
+server.get("/", (req, res) => {
+    res.json({ message: "👋🌎, root dir sanity check" });
+  });
 
 server.use('/', authRoute);
 
