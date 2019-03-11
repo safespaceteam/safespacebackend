@@ -51,5 +51,36 @@ router.post('/messages', (req, res) => {
       });
   });
 
+  // DELETE
+router.delete('/messages/:id', (req, res) => {
+    const id = req.params.id;
+  
+    db('messages')
+      .where({ id })
+      .del()
+      .then(count => {
+        res.status(200).json({ count });
+      })
+      .catch(error => {
+        errorHandler(res, 500, 'There was an error deleting the message', error);
+      });
+  });
+  
+  // PUT
+  router.put('/messages/:id', (req, res) => {
+    const id = req.params.id;
+    const update = req.body;
+  
+    db('messages')
+      .where({ id })
+      .update(update)
+      .then(count => {
+        res.status(200).json({ count });
+      })
+      .catch(error => {
+        errorHandler(res, 500, 'There was an error updating the message.', error);
+      });
+  });
+
 
 module.exports = router;
