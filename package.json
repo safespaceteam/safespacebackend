@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --verbose",
+    "test": "cross-env DB_ENV=testing jest --watch --verbose",
     "start": "nodemon index.js"
   },
   "repository": "https://github.com/safespaceteam/safespacebackend.git",
@@ -22,6 +22,7 @@
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "jest": "^24.3.1",
     "nodemon": "^1.18.10",
     "supertest": "^4.0.0"
