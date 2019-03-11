@@ -15,12 +15,8 @@ https://my-safe-space.herokuapp.com/
 
 | Method | Endpoint      | Description                                                                                                                                                                                                                                                                                         |
 | ------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET   | /messages    | This route does require auth in the header to view the messages. The JWT token is used to authorize 
-                                |
-| GET   | /messages/:id    | This route requires the message id
-                                            |
-| POST   | /messages    | This route required the userId and a message to add a new message 
-    |
-| DELETE   | /messages/:id    | Remove a message by the message id 
-                                    |
+| GET   | /messages    | This route does require auth in the header to view the messages. The JWT token is used to authorize|
+| GET   | /messages/:id    | This route requires the message id|
+| POST   | /messages    | This route required the userId and a message to add a new message |
+| DELETE   | /messages/:id    | Remove a message by the message id |
 | PUT   | /messages/:id    | Update the message by the message id |
