@@ -2,6 +2,10 @@
   "name": "safespacebackend",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+		"test": "jest --watch --verbose",
+		"start": "nodemon index.js"
+	},
   "repository": "https://github.com/safespaceteam/safespacebackend.git",
   "author": "Megan Jeffcoat",
   "license": "MIT",
