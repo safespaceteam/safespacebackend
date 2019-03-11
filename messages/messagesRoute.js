@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require("../data/dbConfig.js");
 
 
-const Messages = require('./messagesModel.js');
 
 const errorHandler = (res, code, message, error) => {
     return res.status(code).json({ message, error });
