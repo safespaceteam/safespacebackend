@@ -15,7 +15,6 @@ https://my-safe-space.herokuapp.com/
 
 | Method | Endpoint      | Description                                                                                                                                                                                                                                                                                         |
 | ------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
 | GET   | /messages    | This route does require auth in the header to view the messages. The JWT token is used to authorize |
 
 | GET   | /messages/:id    | This route requires the message id|
