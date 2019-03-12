@@ -49,7 +49,7 @@ router.post('/login', (req, res) => {
             const token = generateToken(user);
           res
             .status(200)
-            .json({ message: `Welcome ${user.name}!`, token });
+            .json({ message: `Welcome ${user.name}!`, token, userId: user.id });
         } else {
           res.status(401).json({ message: 'Invalid Credentials' });
         }
@@ -83,7 +83,7 @@ router.post('/login', (req, res) => {
 
 
 router.get('/messages',restricted, (req, res) => {
-  db('messages').select('id', 'message')
+  db('messages').select('id', 'message', 'userId')
     .then(messages => {
       res.status(200).json(messages);
     })

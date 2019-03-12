@@ -6,6 +6,7 @@ const configureMiddleware = require("../config/middleware.js");
 const authRoute = require('../auth/authRoute.js');
 const messagesRoute = require('../messages/messagesRoute.js');
 
+
 const server = express();
 
 configureMiddleware(server);
@@ -17,6 +18,7 @@ server.get("/", (req, res) => {
 
 server.use('/', authRoute);
 server.use('/', messagesRoute);
+
 
 module.exports = server;
 
