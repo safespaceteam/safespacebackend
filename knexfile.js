@@ -36,14 +36,19 @@ module.exports = {
     },
   },
   production: {
-    client: 'pg',
-    connection: prodDbConnection, // an object or a string
+    client: "postgresql",
+    connection: {
+      database: "my_db",
+      user: "username",
+      password: "password"
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
     migrations: {
-      directory: './data/migrations',
-    },
-    seeds: {
-      directory: './data/seeds',
-    },
-  },
+      tableName: "knex_migrations"
+    }
+  }
 
 };
