@@ -5,7 +5,7 @@ const configureMiddleware = require("../config/middleware.js");
 
 const authRoute = require('../auth/authRoute.js');
 const messagesRoute = require('../messages/messagesRoute.js');
-
+const twilioRoute = require('../twilio/twilioRouter.js');
 
 const server = express();
 
@@ -18,7 +18,7 @@ server.get("/", (req, res) => {
 
 server.use('/', authRoute);
 server.use('/', messagesRoute);
-
+server.use('/', twilioRoute);
 
 module.exports = server;
 
