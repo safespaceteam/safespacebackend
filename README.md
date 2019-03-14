@@ -20,3 +20,9 @@ https://my-safe-space.herokuapp.com/
 | POST   | /messages    | This route required the userId and a message to add a new message |
 | DELETE   | /messages/:id    | Remove a message by the message id |
 | PUT   | /messages/:id    | Update the message by the message id |
+
+### Twilio Endpoints
+
+| Method | Endpoint      | Description                                                                                                                                                                                                                                                                                         |
+| ------ | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | /send | Sends the message via text, message id is required for this route.|  
