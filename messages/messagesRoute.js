@@ -5,6 +5,7 @@ const db = require("../data/dbConfig.js");
 
 
 
+
 const errorHandler = (res, code, message, error) => {
     return res.status(code).json({ message, error });
   };
@@ -13,14 +14,14 @@ const errorHandler = (res, code, message, error) => {
 // GET :ID
 router.get('/messages/:id', (req, res) => {
     const id = req.params.id;
-  
+
     db('messages')
       .where({ id })
       .first()
       .then(message => {
         if (message) {
           db('users')
-            .where({ id })
+            .where({ id: message.userId })
             .then(user => {
               res.status(200).json(message);
             });
